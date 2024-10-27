@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balance Sheet</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="report">
+        <h2>Daily Balance Sheet</h2>
+        <label for="date-filter">Select Date:</label>
+    <input type="date" id="date-filter">
+    <button id="filter-button">Filter</button>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Total Sales</th>
+                <th>Total Commission</th>
+                <th>Net Profit</th>
+            </tr>
+            <!-- Dynamic rows for each day's balance sheet -->
+            {% for balance in balance_sheets %}
+            <tr>
+                <td>{{ balance.date }}</td>
+                <td>${{ balance.total_sales }}</td>
+                <td>${{ balance.total_commission }}</td>
+                <td>${{ balance.net_profit }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

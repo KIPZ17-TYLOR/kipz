@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Stock</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Stock</h2>
+        <form id="add-stock-form" action="/add_stock" method="POST">
+            <label for="product">Product:</label>
+            <select name="product_id">
+                {% for product in products %}
+                <option value="{{ product.product_id }}">{{ product.product_name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="quantity">Quantity to Add:</label>
+            <input type="number" name="quantity" required>
+
+            <button type="submit">Add Stock</button>
+        </form>
+    </div>
+</body>
+</html>

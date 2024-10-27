@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Dashboard</h1>
+        <nav>
+            <a href="/sales">Sales</a> |
+            <a href="/add_stock">Add Stock</a> |
+            <a href="/balance_sheet">Balance Sheet</a>
+        </nav>
+        abel for="dashboard-filter">Filter by Category:</label>
+    <select id="dashboard-filter">
+        <option value="all">All</option>
+        <option value="low_stock">Low Stock</option>
+        <option value="out_of_stock">Out of Stock</option>
+        <option value="high_sales">High Sales</option>
+    </select>
+    <button id="refresh-dashboard">Refresh</button>
+
+        <h2>Product Inventory</h2>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <!-- Dynamic rows for each product -->
+            {% for product in products %}
+            <tr>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.quantity_in_stock }}</td>
+                <td>${{ product.price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
